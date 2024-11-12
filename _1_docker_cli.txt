@@ -1,0 +1,17 @@
+docker container run hello-world //konteyneri oluşturma
+
+--Search
+docker search --help // --help kısmınız yazarsam bana yazabileceğim şeyleri gösteriyor
+
+docker search nginx //nginxi gösteriyor
+
+--Container
+Container; Tek bir application için kullanmak
+
+docker container run --publish 80:80 nginx //ilk önce yönlendireceğim port sonra // ise varsayılan port
+
+docker container run --publish 81:80 --detach nginx  // deatch (arka planda çalışsin demek)
+
+docker container run --publish 82:80 --detach --name nginx-my1 nginx // isim verme değişikliği
+
+docker container run --publish 82:80 --detach --name nginx-my2 --rm nginx // --rm eklersek durdurduğumuz zaman silinir
