@@ -1,11 +1,17 @@
 docker container run hello-world //konteyneri oluşturma
 
+-- Kısaca bir container başlatma yolları
+
+docker container run konteynerim 
+docker container start konteynerim
+
 --Search
 docker search --help // --help kısmınız yazarsam bana yazabileceğim şeyleri gösteriyor
 
 docker search nginx //nginxi gösteriyor
 
---Container
+--CONTAINER
+
 Container; Tek bir application için kullanmak
 
 docker container run --publish 80:80 nginx //ilk önce yönlendireceğim port sonra // ise varsayılan port
@@ -15,3 +21,58 @@ docker container run --publish 81:80 --detach nginx  // deatch (arka planda çal
 docker container run --publish 82:80 --detach --name nginx-my1 nginx // isim verme değişikliği
 
 docker container run --publish 82:80 --detach --name nginx-my2 --rm nginx // --rm eklersek durdurduğumuz zaman silinir
+
+docker container run -- publish 85:80 --detach --name nginx_my5 --rm nginx:1.14 // 1.14 sürümünü getirir
+
+docker container run - p 86:80 -d --name nginx_my5 --rm nginx:1.14 // --publish için -p yazabilirsin --detach için ise -d yazabilirsin
+
+curl localhost:86 // burada ise çalışıyormu kontrolünü sağlayıp içeriğini görebiliyoruz
+
+--LIST (CONTAINER)
+
+docker ps // açık container'ları görebiliyoruz liste halinde
+
+docker ps -a // açık container'ları görebiliyoruz çalışmayanlarda dahil
+
+docker container ls // açık container'ları görebiliyoruz liste halinde
+
+docker container ls -a // çalışmayanlarıda görebiliyoruz 
+
+--STOP (CONTAINER)
+
+docker container stop <CONTAINER_ID> // stop edebilmek için id veya name vermemiz gerekiyor
+
+docker container stop <CONTAINER_NAME> // stop edebilmek için id veya name vermemiz gerekiyor
+
+--START (CONTAINER)
+
+docker container run -p 90:80 -d --name nginx_my8 ngnix // oluşturma ve başlatma
+
+docker ps // çalışan container görüntüleme 
+
+--DELETE (CONTAINER)
+
+docker container stop <CONTAINER_ID> // ilk önce stop etmem gerekiyor ondan sonra 
+
+docker container rm <CONTAINER_ID> // container verilerini silmek için 
+
+docker container rm <CONTAINER_NAME> // container verilerini silmek için 
+
+
+--DELETE FORCE (CONTAINER)
+
+docker container rm -f <CONTAINER_ID> // stop etmeden silme işlemine yarar
+
+docker container rm -f <CONTAINER_NAME>
+
+
+--PRUNE DELETE (CONTAINER)
+
+docker container prune // kalıntısız silme işlemi
+
+
+
+
+
+
+
